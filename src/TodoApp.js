@@ -19,9 +19,10 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = createStore(persistedReducer);
-const persistor = persistStore(store)
+const persistor = persistStore(store);
 
 export default class TodoApp extends React.Component {
+
 	render(){
 		return(
 			<Provider store={store}>

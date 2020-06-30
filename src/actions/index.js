@@ -1,7 +1,8 @@
 export const ADD_TODO = 'ADD_TODO';
-export const addTodo = text => ({
+export const addTodo = (text, description) => ({
 	type: ADD_TODO,
-	text
+	text,
+	description
 });
 
 export const TOGGLE_DONE = 'TOGGLE_DONE';
@@ -11,8 +12,9 @@ export const toggleDone = todoId => ({
 });
 
 export const SET_TODO_TEXT = 'SET_TODO_TEXT';
-export const setTodoText = text => ({
+export const setTodoText = (field, text) => ({
 	type: SET_TODO_TEXT,
+	field,
 	text
 });
 
@@ -39,3 +41,13 @@ export const setUserText = text => ({
 	type: SET_USER_TEXT,
 	text
 });
+
+export const SET_DEFAULT_TODO = 'SET_DEFAULT_TODO';
+export const setDefaultTodo = () => ({
+	type: SET_DEFAULT_TODO
+});
+
+export const CREATE_NEW_TODO = 'CREATE_NEW_TODO';
+export const createNewTodo = () => ({
+	type: CREATE_NEW_TODO
+})

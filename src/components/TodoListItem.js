@@ -8,12 +8,18 @@ const TodoListItem = ({ todo, onPressTodo, onLongPressTodo, onPressDeleteTodo })
 	>
 		<View style={style.line}>
 			<Text style={style.lineMarking}>{todo.done ? '[X]' : '[ ]' }</Text>
-		    <Text style={[
-		    		style.lineText,
-		    		todo.done ? style.textMarked : null
-		    	]}>{ todo.text }
-		    </Text>
-		    <View>
+			<View style={style.textContainer}>
+				<Text style={[
+			    		style.lineText,
+			    		todo.done ? style.textMarked : null
+			    	]}>{ `${todo.text}` }
+			    </Text>
+			    { todo.description !== ''
+			    	? <Text style={style.lineDescription}>{`Descrição: ${todo.description}`}</Text>
+			    	: <Text style={style.lineDescription}>{"Sem descrição"}</Text>
+			    }
+			</View>
+		    <View style={style.buttonStyle}>
 		   		<Button color='red' onPress={onPressDeleteTodo} title="Excluir"/>
 		    </View>
 		</View>     
@@ -22,18 +28,27 @@ const TodoListItem = ({ todo, onPressTodo, onLongPressTodo, onPressDeleteTodo })
 
 const style = StyleSheet.create({
 	line: {
-		height: 60,
+		//padding: 10,
 		borderBottomWidth: 1,
 		borderBottomColor: '#bbb',
 		alignItems: 'center',
 		flexDirection: 'row'
 	},
 
+	textContainer: {
+		flexDirection: 'column', 
+		flex: 6, 
+		padding: 20
+	},
+
 	lineText: {
 		fontSize: 20,
-		paddingLeft: 15,
-		flex: 7,
 		color: 'blue'
+	},
+
+	lineDescription: {
+		fontSize: 15,
+		color: 'black'
 	},
 
 	lineMarking: {
@@ -47,12 +62,11 @@ const style = StyleSheet.create({
 		color: 'red'
 	},
 
-	avatar: {
-		aspectRatio: 1,
-		flex: 1,
-		marginLeft: 15,
-		borderRadius: 50
+	buttonStyle: {
+		flex: 2,
+		paddingRight: 10
 	}
+
 })
 
 export default TodoListItem;

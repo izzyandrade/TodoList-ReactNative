@@ -20,10 +20,8 @@ class LoginScreen extends React.Component {
 	onPress(){
 		//
 		//console.log(this.props.user);
-		if(this.props.user !== undefined){
-			console.log(this.props.user);
+		if(this.props.user[0] !== undefined){
 			if(this.state.text  === this.props.user[0].text){
-				console.log("Entrou no app");
 				this.props.navigation.navigate('Main');
 			}else{
 				console.log("Senha incorreta");
@@ -36,23 +34,25 @@ class LoginScreen extends React.Component {
 	render(){
 		const { user } = this.props
 		return(
-			<View>
+			<View style={style.container}>
 				{ user 
-					? <Text style={{textAlign: 'center', fontSize: 20}}>Por favor, entre com seus dados:</Text>
-					: <Text style={{textAlign: 'center', fontSize: 20}}>Por favor, cadastre-se no sistema:</Text>
+					? <Text style={style.infoText}>Você já está cadastrado no sistema, por favor, insira a sua senha:</Text>
+					: <Text style={style.infoText}>Por favor, como é seu primeiro acesso, defina uma senha para entrar no sistema:</Text>
 				}
-				<FormRow first>
+				<View style={style.formContainer}>
+					<FormRow>
 					<TextInput 
 						style={style.textInput} 
 						placeholder="******" secureTextEntry 
 						value={this.state.text}
 						onChangeText={text => this.onChangeText(text)}
 					/>
-				</FormRow>
-				<Button 
-					title="Entrar" 
-					onPress={() => this.onPress()}
-				/>
+					</FormRow>
+					<Button 
+						title="Entrar" 
+						onPress={() => this.onPress()}
+					/>
+				</View>
 			</View>
 		);
 	}
@@ -70,11 +70,12 @@ const mapStateToProps = state => {
 
 const style = StyleSheet.create({
 	container: {
-		paddingLeft: 40,
-		paddingRight: 40,
+		//paddingLeft: 40,
+		//paddingRight: 40,
 		paddingBottom: 150,
 		flex: 1,
 		justifyContent: 'center',
+		//alignItems: 'center'
 	},
 	textInput: {
 		//height: 40, 
@@ -84,6 +85,18 @@ const style = StyleSheet.create({
 		paddingRight: 5,
 		paddingBottom: 5
 	},
+	infoText: {
+		textAlign: 'center', 
+		fontSize: 20, 
+		paddingLeft: 80, 
+		paddingRight: 80, 
+		paddingTop: 30, 
+		paddingBottom: 30
+	},
+	formContainer: {
+		paddingLeft: 50,
+		paddingRight: 50
+	}
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

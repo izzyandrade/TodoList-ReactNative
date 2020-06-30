@@ -6,7 +6,7 @@ import TodoList from './TodoList';
 export default class MainScreen extends React.Component {
 	render(){
 		return(
-			<View>
+			<View style={{flexDirection: 'column', flex: 1}}>
 				<TodoForm />
 				<TodoList />
 			</View>

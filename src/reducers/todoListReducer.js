@@ -6,12 +6,15 @@ const todoListReducer = (state = [], action) => {
 	switch(action.type){
 
 		case ADD_TODO:
+			if(action.text === ''){
+				return state;
+			}
 			const newTodo = {
 				id: state.length + 1,
 				text: action.text,
+				description: action.description,
 				done: false
 			}
-			console.log(newTodo.id, state);
 			return [...state, newTodo];
 
 		case TOGGLE_DONE:

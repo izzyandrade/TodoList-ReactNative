@@ -1,6 +1,6 @@
 # TODO LIST
 
-A simple todo list app made for a job interview, using React Native, React Redux, Expo, and much more.
+A simple todo list app made for a job interview, using React Native, React Redux, Redux Persist, Expo, and much more.
 
 ## Getting Started
 

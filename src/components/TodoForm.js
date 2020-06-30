@@ -18,7 +18,6 @@ class TodoForm extends React.Component {
 			const { text } = todo;
 			this.props.dispatchAddTodo(text);
 		}
-		
 	}
 
 	render(){

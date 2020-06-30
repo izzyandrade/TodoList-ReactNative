@@ -1,19 +1,22 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native';
 
-const TodoListItem = ({ todo, onPressTodo, onLongPressTodo }) => (
+const TodoListItem = ({ todo, onPressTodo, onLongPressTodo, onPressDeleteTodo }) => (
 	<TouchableOpacity 
 		onPress={onPressTodo}
 		onLongPress={onLongPressTodo}			  	
 	>
 		<View style={style.line}>
 			<Text style={style.lineMarking}>{todo.done ? '[X]' : '[ ]' }</Text>
-            <Text style={[
-            		style.lineText,
-            		todo.done ? style.textMarked : null
-            	]}>{ todo.text }
-           </Text>
-    	</View>     
+		    <Text style={[
+		    		style.lineText,
+		    		todo.done ? style.textMarked : null
+		    	]}>{ todo.text }
+		    </Text>
+		    <View>
+		   		<Button color='red' onPress={onPressDeleteTodo} title="Excluir"/>
+		    </View>
+		</View>     
 	</TouchableOpacity>
 );
 

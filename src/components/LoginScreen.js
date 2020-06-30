@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Button, TextInput, Alert } from 'react-native';
 import FormRow from './FormRow'
 import { setUserText } from '../actions';
 import { connect } from 'react-redux';
@@ -24,7 +24,7 @@ class LoginScreen extends React.Component {
 			if(this.state.text  === this.props.user[0].text){
 				this.props.navigation.navigate('Main');
 			}else{
-				console.log("Senha incorreta");
+				Alert.alert('Senha incorreta!', 'Tente novamente', [{ text: 'Ok', onPress: () => {} }]);
 			}
 		}else{
 			this.props.dispatchSetUserText(this.state.text);

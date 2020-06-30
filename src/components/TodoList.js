@@ -17,8 +17,7 @@ const TodoList = ({ todos, dispatchToggleDone, dispatchSetEditingTodo, dispatchD
 				onPressDeleteTodo={() => dispatchDeleteTodo(item)}
         	/> 
 		)}
-		keyExtractor={todo => todo.id}
-		initialNumToRender={todos.length}
+		keyExtractor={todo => todo.id.toString()}
 	/>
 );
 

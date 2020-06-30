@@ -7,7 +7,7 @@ A simple todo list app made for a job interview, using React Native, React Redux
 Clone the repository to your local machine then run this command:
 
 ```
-yarn add
+yarn add flat
 ```
 
 or

@@ -39,6 +39,7 @@ class TodoForm extends React.Component {
 			    >
 			        <Text style={style.modalTextStyle}>Adicionar nova tarefa</Text>
       			</TouchableHighlight>
+      			<Text style={{textAlign: 'center'}}>Para editar uma tarefa, mantenha pressionada</Text>
       			<Modal
 			        animationType="slide"
 			        transparent={true}
@@ -47,7 +48,7 @@ class TodoForm extends React.Component {
 			    >
 			    	<View style={style.centeredView}>
 			        	<View style={style.modalView}>
-			            	<Text style={style.modalText}>Adicionar:</Text>
+			            	<Text style={style.modalText}>{id ? "Editar" : "Adicionar"}:</Text>
 							<View style={style.inputContainer}>
 								<View style={style.inputBlock}>
 									<Text style={style.inputTextLabel}>Nome da tarefa:</Text>
@@ -76,7 +77,6 @@ class TodoForm extends React.Component {
 				             	style={{ ...style.openButton, backgroundColor: "#f5b0a6" }}
 				              	onPress={() => {
 				                	this.props.dispatchSetDefaultTodo();
-				                	console.log(modal);
 				              	}}
 				            >
 				              <Text style={style.modalTextStyle}>Cancelar</Text>
